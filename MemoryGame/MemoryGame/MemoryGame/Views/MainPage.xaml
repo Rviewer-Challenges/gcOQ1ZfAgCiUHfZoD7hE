@@ -2,10 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MemoryGame.Views.MainPage"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <ScrollView Padding="40">
+        <Grid RowDefinitions="*,auto,auto,auto,auto,*">
+
+            <Label  Grid.Row="1" Text="Chooise a Level" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold"/>
+            
+            <Frame Grid.Row="2">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="EASY"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="MEDIUM"/>
+                </StackLayout>
+            </Frame>
+            
+            <Frame Grid.Row="4">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="HARD" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>
