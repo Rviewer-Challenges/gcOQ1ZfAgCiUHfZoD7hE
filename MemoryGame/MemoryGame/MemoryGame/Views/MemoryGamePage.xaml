@@ -2,7 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:vm="clr-namespace:MemoryGame.ViewModels"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:model="clr-namespace:MemoryGame.Models"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="MemoryGame.Views.MemoryGamePage">
-  
+             x:DataType="vm:MemoryGamePageViewModel"
+             x:Class="MemoryGame.Views.MemoryGamePage" Padding="10,0">
+
+    <StackLayout>
+       
+        <CollectionView ItemsSource="{Binding ObPokemon}" ItemSizingStrategy="MeasureAllItems">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="6"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Pokemon">
+                    <Frame BorderColor="Silver" Padding="0" Margin="1" IsClippedToBounds="True" BackgroundColor="AntiqueWhite" >
+                        <ff:CachedImage Source="{Binding Image}" HeightRequest="90"  Aspect="AspectFill" Margin="1"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
 </ContentPage>
