@@ -1,4 +1,6 @@
-﻿using MemoryGame.Utils;
+﻿using MemoryGame.ApiService;
+using MemoryGame.Models;
+using MemoryGame.Utils;
 using Prism.Navigation;
 using Prism.Services;
 using System;
@@ -10,16 +12,20 @@ namespace MemoryGame.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _dialogService;
+        private readonly IPokemonApiService _pokemonApiService;
 
         public Command<string> NavToMemoryGamePageCommand { get; }
 
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
+        public MainPageViewModel(INavigationService navigationService,
+            IPageDialogService dialogService,
+            IPokemonApiService pokemonApiService)
             : base(navigationService)
         {
             Title = "Main Page";
 
             _navigationService = navigationService;
             _dialogService = dialogService;
+            _pokemonApiService = pokemonApiService;
             NavToMemoryGamePageCommand = new Command<string>(NavToMemoryGamePage);
 
         }
@@ -42,5 +48,8 @@ namespace MemoryGame.ViewModels
                 await _navigationService.NavigateAsync(Constants.MemoryGamePage, navigationParams);
             }
         }
+
+
+        
     }
 }
