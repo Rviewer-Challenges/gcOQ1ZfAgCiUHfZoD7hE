@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MemoryGame.Models
 {
@@ -13,6 +14,8 @@ namespace MemoryGame.Models
         [JsonProperty("url")]
         public string Url { get; set; }
 
+        [JsonIgnore]
+        public ImageSource PokeBallImage { get; set; } = "pokeball.png";
         [JsonIgnore]
         public string Image => urlImage();
         public string urlImage()
