@@ -1,3 +1,4 @@
+using MemoryGame.ApiService;
 using MemoryGame.ViewModels;
 using MemoryGame.Views;
 using Prism;
@@ -29,6 +30,9 @@ namespace MemoryGame
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<MemoryGamePage, MemoryGamePageViewModel>();
+
+
+            containerRegistry.Register<IPokemonApiService, PokemonApiService>();
         }
     }
 }
